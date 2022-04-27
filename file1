@@ -1,5 +1,0 @@
-#include "stb_image.h"
-
-int main(){
-  printf("Hello! How to survive here?");
-  }
