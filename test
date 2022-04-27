@@ -1,4 +1,0 @@
-int main{
-  printf("Who am I?\n");
-  return 0;
-  }
