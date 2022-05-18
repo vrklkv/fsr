@@ -26,55 +26,21 @@ int main(){
         k++;  
     }
 
-/*
+    //Повышение контрастности
     for (i=2;i<=ih-2;i++){
         for (j=2;j<=iw-2;j++){
             if(od[iw*i+j]>155)od[iw*i+j]=255;
             if(od[iw*i+j]<92)od[iw*i+j]=0;
         }
     }
-*/
-    int c;
-    for(c=0;c<4;c++){
-        //Гауссово размытие
-        for (i=2;i<=ih-2;i++){
-           for (j=2;j<iw-2;j++){
-              od[iw*i+j]=0.0924*od[iw*(i-1)+(j-1)]+0.01192*od[iw*(i-1)+(j)]+0.0924*od[iw*(i-1)+(j+1)]+0.1192*od[iw*(i)+(j-1)]+0.1538*od[iw*(i)+(j)]+0.1192*od[iw*(i)+(j+1)]+0.0924*od[iw*(i+1)+(j-1)]+0.1192*od[iw*(i+1)+(j)]+0.0924*od[iw*(i+1)+(j+1)];
-          }
-        }
-    }
 
-
-
-    for (i=2;i<=ih-2;i++){
-        for (j=2;j<=iw-2;j++){
-            if(od[iw*i+j]>80)od[iw*i+j]=255;
-            if(od[iw*i+j]<50)od[iw*i+j]=0;
-        }
-    }
-
-
-/*
-    for (i=2;i<=ih-2;i++){
-        for (j=2;j<=iw-2;j++){
-            if(od[iw*i+j]<80)od[iw*i+j]=0;
-            if((od[iw*i+j]>=80)&&(od[iw*i+j]<=150))od[iw*i+j]=127;
-            if(od[iw*i+j]>150)od[iw*i+j]=255;
-        }
-    }
-*/
-
-/*
-    //Фильтр Собеля
-    unsigned char x,y;
+    //Гауссово размытие
     for (i=2;i<=ih-2;i++){
         for (j=2;j<iw-2;j++){
-        x=-1*od[iw*(i-1)+(j-1)]-2*od[iw*i+(j-1)]-1*od[iw*(i+1)+(j-1)]+1*od[iw*(i-1)+(j+1)]+2*od[iw*i+(j+1)]+1*od[iw*(i+1)+(j+1)];
-        y=-1*od[iw*(i-1)+(j-1)]-2*od[iw*(i-1)+j]-1*od[iw*(i-1)+(j+1)]+1*od[iw*(i+1)+(j-1)]+2*od[iw*(i+1)+j]+1*od[iw*(i+1)+(j+1)];
-        od[iw*i+j]=sqrt(x*x + y*y);
+            od[iw*i+j]=0.0924*od[iw*(i-1)+(j-1)]+0.01192*od[iw*(i-1)+(j)]+0.0924*od[iw*(i-1)+(j+1)]+0.1192*od[iw*(i)+(j-1)]+0.1538*od[iw*(i)+(j)]+0.1192*od[iw*(i)+(j+1)]+0.0924*od[iw*(i+1)+(j-1)]+0.1192*od[iw*(i+1)+(j)]+0.0924*od[iw*(i+1)+(j+1)];
         }
     }
-*/
+
 
     char* outputPath = "output.png";
     // записываем картинку
